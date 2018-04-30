@@ -42,10 +42,10 @@ This is the documentation for SaronaHub's database structure.
 | - | - | - | - | - |
 | id | *String* | | **false** | |
 | visitor | *String* | | **false** | visitor user id |
-| date | *Date* | | **false** | the date of the visit |
-| exit | *Date* or *String* | | **false** | when the visit ended |
-| entrance | *Date* or *String* | | **false** | when the visit started |
+| date | *Object* | | **false** | |
 | totalTime | Number | | **false** | the total number of seconds of the visit |
+| date.exit | *Date* or *String* | | **false** | when the visit ended |
+| date.entrance | *Date* or *String* | | **false** | when the visit started |
 
 ## Images Schema
 
@@ -55,6 +55,6 @@ This is the documentation for SaronaHub's database structure.
 | author | *Object* | | **false** | |
 | author.id | *String* | | **false** | |
 | author.name | *String* | | **false** | |
-| description | *String* | | **false** | |
+| description | *String* | | **true** | |
 | url | *String* | | **false** | |
 | timestamp | *Date* | | **false** | when the image was uploaded |

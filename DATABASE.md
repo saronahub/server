@@ -13,8 +13,7 @@ This is the documentation for SaronaHub's database structure.
 | name.last | *String* | | **false** | |
 | phone | *String* | | **false** | |
 | password | *String* | | **false** | |
-| picture | *String* | default image | **false** | |
-| totalVisitHours | *Number* | 0 | **false** | the total number of hours a user was at saronahub |
+| picture | *String* | default image | **false** | profile picture |
 | isFBUser | *Boolean* | **false** | **false** | whether a user signed up with facebook |
 | fbId | *String* | | **false** | only if *isFBUser* is **true** |
 | fbToken | *String* | | **false** | only if *isFBUser* is **true** |
@@ -46,6 +45,7 @@ This is the documentation for SaronaHub's database structure.
 | date | *Date* | | **false** | the date of the visit |
 | exit | *Date* or *String* | | **false** | when the visit ended |
 | entrance | *Date* or *String* | | **false** | when the visit started |
+| totalTime | Number | | **false** | the total number of seconds of the visit |
 
 ## Images Schema
 

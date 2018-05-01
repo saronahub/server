@@ -1,10 +1,15 @@
 const http = require('http');
+const dotenv = require('dotenv');
 const express = require('express');
 const bodyParser = require('body-parser');
 
 const initDB = require('./lib/initDB');
 const logger = require('./lib/logger');
 // const { router: api } = require('./routes');
+
+if (process.env.NODE_ENV !== 'production') {
+  dotenv.config();
+}
 
 initDB();
 

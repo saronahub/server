@@ -43,9 +43,9 @@ This is the documentation for SaronaHub's database structure.
 | id | *String* | | **false** | |
 | visitor | *String* | | **false** | visitor user id |
 | date | *Object* | | **false** | |
-| totalTime | Number | | **false** | the total number of seconds of the visit |
 | date.exit | *Date* or *String* | | **false** | when the visit ended |
 | date.entrance | *Date* or *String* | | **false** | when the visit started |
+| totalTime | Number | | **false** | the total number of seconds of the visit |
 
 ## Images Schema
 

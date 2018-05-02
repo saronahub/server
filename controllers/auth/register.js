@@ -1,7 +1,8 @@
-const { isEmail, isNumeric, isMobilePhone } = require('validator');
+const { isNumeric, isMobilePhone } = require('validator');
 
 const User = require('../../models/user');
 const logger = require('../../lib/logger');
+const validateEmailPassword = require('../../lib/validateEmailPassword');
 
 const register = async function register(req, res) {
   const {
@@ -17,31 +18,16 @@ const register = async function register(req, res) {
 
   let params = {};
 
-  if (!isEmail(email)) {
-    return res.json({
-      success: false,
-      error: 'Expected valid email address'
-    });
+  const emailPasswordResponse = validateEmailPassword(email, password);
+
+  if (!emailPasswordResponse.success) {
+    return res.json(emailPasswordResponse);
   }
 
   if (!isMobilePhone(phone, 'he-IL')) {
     return res.json({
       success: false,
       error: 'Expected valid phone number'
-    });
-  }
-
-  if (!password) {
-    return res.json({
-      success: false,
-      error: 'Expected password parameter'
-    });
-  }
-
-  if (password.length < 8) {
-    return res.json({
-      success: false,
-      error: 'Expected password length to be at least 8 characters'
     });
   }
 

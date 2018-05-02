@@ -1,8 +1,8 @@
 const jwt = require('jsonwebtoken');
-const { isEmail } = require('validator');
 
 const User = require('../../models/user');
 const logger = require('../../lib/logger');
+const validateEmailPassword = require('../../lib/validateEmailPassword');
 
 const login = async function login(req, res) {
   const {
@@ -10,25 +10,10 @@ const login = async function login(req, res) {
     password = ''
   } = req.body;
 
-  if (!isEmail(email)) {
-    return res.json({
-      success: false,
-      error: 'Expected valid email address'
-    });
-  }
+  const emailPasswordResponse = validateEmailPassword(email, password);
 
-  if (!password) {
-    return res.json({
-      success: false,
-      error: 'Expected password parameter'
-    });
-  }
-
-  if (password.length < 8) {
-    return res.json({
-      success: false,
-      error: 'Expected password length to be at least 8 characters'
-    });
+  if (!emailPasswordResponse.success) {
+    return res.json(emailPasswordResponse);
   }
 
   let user;

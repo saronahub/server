@@ -2,7 +2,8 @@ const jwt = require('jsonwebtoken');
 
 const User = require('../../models/user');
 const logger = require('../../lib/logger');
-const validateEmailPassword = require('../../lib/validateEmailPassword');
+
+const { validateEmail, validatePassword } = require('../../lib/validate');
 
 const login = async function login(req, res) {
   const {
@@ -10,10 +11,17 @@ const login = async function login(req, res) {
     password = ''
   } = req.body;
 
-  const emailPasswordResponse = validateEmailPassword(email, password);
+  const [
+    emailResponse,
+    passwordResponse
+  ] = [validateEmail(email), validatePassword(password)];
 
-  if (!emailPasswordResponse.success) {
-    return res.json(emailPasswordResponse);
+  if (!emailResponse.success) {
+    return res.json(emailResponse);
+  }
+
+  if (!passwordResponse.success) {
+    return res.json(passwordResponse);
   }
 
   let user;

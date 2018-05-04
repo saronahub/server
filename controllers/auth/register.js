@@ -2,7 +2,8 @@ const { isNumeric, isMobilePhone } = require('validator');
 
 const User = require('../../models/user');
 const logger = require('../../lib/logger');
-const validateEmailPassword = require('../../lib/validateEmailPassword');
+
+const { validateEmail, validatePassword } = require('../../lib/validate');
 
 const register = async function register(req, res) {
   const {
@@ -18,10 +19,17 @@ const register = async function register(req, res) {
 
   let params = {};
 
-  const emailPasswordResponse = validateEmailPassword(email, password);
+  const [
+    emailResponse,
+    passwordResponse
+  ] = [validateEmail(email), validatePassword(password)];
 
-  if (!emailPasswordResponse.success) {
-    return res.json(emailPasswordResponse);
+  if (!emailResponse.success) {
+    return res.json(emailResponse);
+  }
+
+  if (!passwordResponse.success) {
+    return res.json(passwordResponse);
   }
 
   if (!isMobilePhone(phone, 'he-IL')) {

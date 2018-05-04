@@ -1,6 +1,6 @@
 const { Schema, model } = require('mongoose');
 
-const userSchema = new Schema({
+const eventSchema = new Schema({
   author: {
     id: {
       type: String,
@@ -44,4 +44,4 @@ const userSchema = new Schema({
   collection: 'events'
 });
 
-module.exports = model('Event', userSchema);
+module.exports = model('Event', eventSchema);

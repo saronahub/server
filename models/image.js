@@ -1,6 +1,6 @@
 const { Schema, model } = require('mongoose');
 
-const userSchema = new Schema({
+const imageSchema = new Schema({
   author: {
     id: {
       type: String,
@@ -29,4 +29,4 @@ const userSchema = new Schema({
   collection: 'images'
 });
 
-module.exports = model('Image', userSchema);
+module.exports = model('Image', imageSchema);

@@ -3,7 +3,7 @@ const { Router } = require('express');
 
 const User = require('../models/user');
 const logger = require('../lib/logger');
-const { getToken, tokenExists } = require('../lib/util');
+const { has, getToken, tokenExists } = require('../lib/util');
 
 const loginController = require('../controllers/auth/login');
 const resetController = require('../controllers/auth/reset');
@@ -26,12 +26,14 @@ router.use('/', async (req, res, next) => {
       logger.error(e);
     }
 
-    if (data && data.id) {
+    if (has.call(data, 'id')) {
       const { id } = data;
 
       const user = await User.findOne({ _id: id });
 
       if (user && user.id === id) {
+        req.user = user;
+
         return next();
       }
     }

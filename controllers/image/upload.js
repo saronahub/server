@@ -3,20 +3,12 @@ const crypto = require('crypto');
 const AWS = require('aws-sdk');
 
 const logger = require('../../lib/logger');
+const getFile = require('../../lib/getFile');
 const Image = require('../../models/image');
+const { mimeTypes } = require('../../lib/util');
 
 const ACL = 'public-read';
 const ContentType = 'image/jpeg';
-const allowedMimeTypes = [
-  'image/jpeg',
-  'image/pjpeg',
-  'image/png',
-  'image/webp',
-  'image/gif',
-  'image/tiff',
-  'image/x-tiff',
-  'image/svg+xml',
-];
 
 const upload = async function upload(req, res) {
   const {
@@ -27,14 +19,14 @@ const upload = async function upload(req, res) {
 
   const { id, name } = req.user;
   const { description } = req.body;
-  const { buffer, mimetype, originalname } = req.file;
+  const { buffer, mimetype } = req.file;
 
   const s3 = new AWS.S3({
     accessKeyId: S3_ID,
     secretAccessKey: S3_SECRET
   });
 
-  if (!allowedMimeTypes.includes(mimetype)) {
+  if (!mimeTypes.includes(mimetype)) {
     return res.json({
       success: false,
       error: 'Unsupported file type'
@@ -45,28 +37,38 @@ const upload = async function upload(req, res) {
     quality: 85
   }).toBuffer();
 
-  // generate unique file name
-  const hash = crypto.createHash('sha1')
-    .update(`${originalname}.${id}.${Date.now()}`).digest('hex');
+  // generate checksum
+  const hash = crypto.createHash('sha1').update(Body).digest('hex');
   const Key = `${hash}.jpg`;
 
-  logger.info(mimetype);
+  const s3Object = await getFile({ s3, Key });
 
-  try {
-    await s3.putObject({
-      Key,
-      ACL,
-      Body,
-      Bucket,
-      ContentType,
-    }).promise();
-  } catch (e) {
-    logger.error(e);
+  if (s3Object.code && s3Object.code !== 'NoSuchKey') {
+    logger.error(s3Object);
 
     return res.status(500).json({
       success: false,
       error: 'Unexpected server error'
     });
+  }
+
+  if (s3Object.code && s3Object.code === 'NoSuchKey') {
+    try {
+      await s3.putObject({
+        Key,
+        ACL,
+        Body,
+        Bucket,
+        ContentType,
+      }).promise();
+    } catch (e) {
+      logger.error(e);
+
+      return res.status(500).json({
+        success: false,
+        error: 'Unexpected server error'
+      });
+    }
   }
 
   const url = `${Bucket}/${Key}`;

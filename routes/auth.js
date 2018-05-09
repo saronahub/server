@@ -32,7 +32,7 @@ router.use('/', async (req, res, next) => {
       const user = await User.findOne({ _id: id });
 
       if (user && user.id === id) {
-        req.user = user;
+        req.user = user.toJSON();
 
         return next();
       }

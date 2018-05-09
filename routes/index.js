@@ -14,7 +14,7 @@ router.use(auth);
 // router.use('/user', user);
 // router.use('/visit', visit);
 // router.use('/event', event);
-// router.use('/image', image);
+router.use('/image', image);
 
 module.exports = {
   router

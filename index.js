@@ -4,6 +4,7 @@ const helmet = require('helmet');
 const express = require('express');
 const bodyParser = require('body-parser');
 
+const initS3 = require('./lib/initS3');
 const initDB = require('./lib/initDB');
 const logger = require('./lib/logger');
 const { router: api } = require('./routes');
@@ -16,6 +17,7 @@ if (process.env.NODE_ENV !== 'production') {
   }
 }
 
+initS3();
 initDB();
 
 const app = express();

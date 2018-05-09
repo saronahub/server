@@ -10,6 +10,7 @@
   "author": "yoavmmn <yoavmmn@gmail.com>",
   "license": "MIT",
   "dependencies": {
+    "aws-sdk": "^2.235.1",
     "bcrypt": "^2.0.1",
     "body-parser": "^1.18.2",
     "dotenv": "^5.0.1",
@@ -17,6 +18,8 @@
     "helmet": "^3.12.0",
     "jsonwebtoken": "^8.2.1",
     "mongoose": "^5.0.17",
+    "multer": "^1.3.0",
+    "sharp": "^0.20.2",
     "validator": "^9.4.1",
     "winston": "next"
   },

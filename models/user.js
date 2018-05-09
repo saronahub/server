@@ -39,7 +39,10 @@ const userSchema = new Schema({
   fbId: String
 }, {
   id: true,
-  collection: 'users'
+  collection: 'users',
+  toJSON: {
+    virtuals: true
+  }
 });
 
 userSchema.pre('save', async function (next) {

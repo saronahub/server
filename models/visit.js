@@ -1,4 +1,6 @@
-const { Schema, model } = require('mongoose');
+const mongoose = require('mongoose');
+
+const { Schema } = mongoose;
 
 const visitSchema = new Schema({
   visitor: {
@@ -12,7 +14,10 @@ const visitSchema = new Schema({
   totalTime: Number
 }, {
   id: true,
-  collection: 'visits'
+  collection: 'visits',
+  toJSON: {
+    virtuals: true
+  }
 });
 
-module.exports = model('Visit', visitSchema);
+module.exports = mongoose.model('Visit', visitSchema);

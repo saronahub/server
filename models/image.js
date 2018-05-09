@@ -1,4 +1,6 @@
-const { Schema, model } = require('mongoose');
+const mongoose = require('mongoose');
+
+const { Schema } = mongoose;
 
 const imageSchema = new Schema({
   author: {
@@ -26,7 +28,10 @@ const imageSchema = new Schema({
   }
 }, {
   id: true,
-  collection: 'images'
+  collection: 'images',
+  toJSON: {
+    virtuals: true
+  }
 });
 
-module.exports = model('Image', imageSchema);
+module.exports = mongoose.model('Image', imageSchema);

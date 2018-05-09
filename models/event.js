@@ -1,4 +1,6 @@
-const { Schema, model } = require('mongoose');
+const mongoose = require('mongoose');
+
+const { Schema } = mongoose;
 
 const eventSchema = new Schema({
   author: {
@@ -41,7 +43,10 @@ const eventSchema = new Schema({
   },
 }, {
   id: true,
-  collection: 'events'
+  collection: 'events',
+  toJSON: {
+    virtuals: true
+  }
 });
 
-module.exports = model('Event', eventSchema);
+module.exports = mongoose.model('Event', eventSchema);

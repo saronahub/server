@@ -1,6 +1,5 @@
 const sharp = require('sharp');
 const crypto = require('crypto');
-const AWS = require('aws-sdk');
 
 const logger = require('../../lib/logger');
 const getFile = require('../../lib/getFile');
@@ -12,19 +11,13 @@ const ContentType = 'image/jpeg';
 
 const upload = async function upload(req, res) {
   const {
-    S3_ID,
-    S3_SECRET,
     S3_BUCKET: Bucket
   } = process.env;
 
+  const { s3 } = global;
   const { id, name } = req.user;
   const { description } = req.body;
   const { buffer, mimetype } = req.file;
-
-  const s3 = new AWS.S3({
-    accessKeyId: S3_ID,
-    secretAccessKey: S3_SECRET
-  });
 
   if (!mimeTypes.includes(mimetype)) {
     return res.json({
@@ -41,7 +34,7 @@ const upload = async function upload(req, res) {
   const hash = crypto.createHash('sha1').update(Body).digest('hex');
   const Key = `${hash}.jpg`;
 
-  const s3Object = await getFile({ s3, Key });
+  const s3Object = await getFile({ s3, Key, Bucket });
 
   if (s3Object.code && s3Object.code !== 'NoSuchKey') {
     logger.error(s3Object);

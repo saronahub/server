@@ -25,7 +25,7 @@ This is the documentation for SaronaHub's database structure.
 | author | *Object* | | **false** | |
 | author.id | *String* | | **false** | |
 | author.name | *String* | | **false** | |
-| room | *Number* | 0 | **false** | Type TBD, the room of the event |
+| room | *Number* | 0 | **false** | the room of the event |
 | date | *Date* | | **false** | the date of the event |
 | description | *String* | | **false** | event description |
 | image | *String* | default image | **true** | |

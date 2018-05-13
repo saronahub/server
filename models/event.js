@@ -15,7 +15,7 @@ const eventSchema = new Schema({
   },
   room: {
     type: Number,
-    default: 0
+    default: 1
   },
   date: {
     type: Date,

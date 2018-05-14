@@ -11,6 +11,7 @@ const registerController = require('../controllers/auth/register');
 
 const router = Router();
 
+router.get('/', (req, res) => res.json({ success: true }));
 router.post('/login', loginController);
 router.post('/reset', resetController);
 router.post('/register', registerController);

@@ -1,8 +1,8 @@
 const { Router } = require('express');
 
-const { router: user } = require('./user');
+// const { router: user } = require('./user');
 const { router: auth } = require('./auth');
-const { router: visit } = require('./visit');
+// const { router: visit } = require('./visit');
 const { router: event } = require('./event');
 const { router: image } = require('./image');
 

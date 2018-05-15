@@ -29,7 +29,14 @@ app.use(bodyParser.urlencoded({ extended: false }));
 app.get('/', (req, res) => res.json({ success: true }));
 app.use('/', api);
 
-http.createServer(app).listen(process.env.PORT || 3000);
+const PORT = process.env.PORT || 3000;
+// http.createServer(app).listen(PORT, () => {
+//   logger.info(`Server listening on port ${PORT}`);
+// });
+app.listen(PORT, () => {
+  logger.info(`Server listening on port ${PORT}`);
+});
+
 
 process.on('exit', (code) => {
   logger.error(`process exited with error ${code}`);

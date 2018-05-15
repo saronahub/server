@@ -26,6 +26,7 @@ app.use(helmet());
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: false }));
 
+app.get('/', (req, res) => res.json({ success: true }));
 app.use('/', api);
 
 http.createServer(app).listen(process.env.PORT || 3000);

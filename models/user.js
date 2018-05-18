@@ -82,4 +82,11 @@ userSchema.methods.comparePassword = async function (passwd) {
   return isMatch;
 };
 
+userSchema.virtual('fullname').get(function () {
+  const { first, last } = this.name;
+
+  // filter undefined, null and empty string
+  return [first, last].filter(v => !!v).join(' ');
+});
+
 module.exports = mongoose.model('User', userSchema);

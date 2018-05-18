@@ -15,7 +15,7 @@ const upload = async function upload(req, res) {
   } = process.env;
 
   const { s3 } = global;
-  const { id, name } = req.user;
+  const { id, fullname } = req.user;
   const { description } = req.body;
   const { buffer, mimetype } = req.file;
 
@@ -65,14 +65,13 @@ const upload = async function upload(req, res) {
   }
 
   const url = `${Bucket}/${Key}`;
-  const nameString = Object.values(name).filter(v => v !== undefined).join(' ');
 
   const image = new Image({
     url,
     description,
     author: {
       id,
-      name: nameString
+      name: fullname
     }
   });
 

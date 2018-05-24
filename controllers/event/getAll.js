@@ -4,11 +4,12 @@ const Event = require('../../models/event');
 const getAll = async function getAll(req, res) {
   let events;
   try {
-    events = await Event.find({}, null, {
+    events = await Event.find({
       approved: true,
       start_time: {
         $gte: new Date()
-      },
+      }
+    }, null, {
       sort: {
         start_time: -1
       }

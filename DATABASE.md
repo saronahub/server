@@ -22,6 +22,7 @@ This is the documentation for SaronaHub's database structure.
 | Name | Type | Default | Optional | Description |
 | - | - | - | - | - |
 | id | *String* | | **false** | |
+| name | *String* | | **false** | |
 | author | *Object* | | **false** | |
 | author.id | *String* | | **false** | |
 | author.name | *String* | | **false** | |

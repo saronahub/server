@@ -47,7 +47,7 @@ This is the documentation for SaronaHub's database structure.
 | date.entrance | *Date* | | **false** | when the visit started |
 | totalTime | *Number* | | **false** | the total number of seconds of the visit |
 
-## Images Schema
+## Image Schema
 
 | Name | Type | Default | Optional | Description |
 | - | - | - | - | - |
@@ -56,5 +56,6 @@ This is the documentation for SaronaHub's database structure.
 | author.id | *String* | | **false** | |
 | author.name | *String* | | **false** | |
 | description | *String* | | **true** | |
-| url | *String* | | **false** | |
+| url | *String* | | **false** | image url |
 | timestamp | *Date* | | **false** | when the image was uploaded |
+| type | *String* | 'upload' | **false** | the type of images uploaded, options: 'upload', 'profile', 'event' |

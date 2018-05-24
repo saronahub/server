@@ -5,10 +5,7 @@ const getAll = async function getAll(req, res) {
   let events;
   try {
     events = await Event.find({
-      approved: true,
-      start_time: {
-        $gte: new Date()
-      }
+      approved: true
     }, null, {
       sort: {
         start_time: -1

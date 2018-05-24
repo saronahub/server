@@ -8,6 +8,7 @@ const { mimeTypes } = require('../../lib/util');
 
 const ACL = 'public-read';
 const ContentType = 'image/jpeg';
+const imageTypes = ['upload', 'profile', 'event'];
 
 const upload = async function upload(req, res) {
   const {
@@ -16,8 +17,18 @@ const upload = async function upload(req, res) {
 
   const { s3 } = global;
   const { id, fullname } = req.user;
-  const { description } = req.body;
   const { buffer, mimetype } = req.file;
+  const {
+    description,
+    type = 'upload'
+  } = req.body;
+
+  if (!imageTypes.includes(type)) {
+    return res.json({
+      success: false,
+      error: 'Unsupported image type'
+    });
+  }
 
   if (!mimeTypes.includes(mimetype)) {
     return res.json({
@@ -68,6 +79,7 @@ const upload = async function upload(req, res) {
 
   const image = new Image({
     url,
+    type,
     description,
     author: {
       id,

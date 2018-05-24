@@ -8,10 +8,10 @@ const reset = async function reset(req, res) {
     email = ''
   } = req.body;
 
-  const emailResponse = validateEmail(email);
+  const validatedEmail = validateEmail(email);
 
-  if (!emailResponse.success) {
-    return res.json(emailResponse);
+  if (!validatedEmail.success) {
+    return res.json(validatedEmail);
   }
 
   let user;

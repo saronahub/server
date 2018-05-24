@@ -12,16 +12,16 @@ const login = async function login(req, res) {
   } = req.body;
 
   const [
-    emailResponse,
-    passwordResponse
+    validatedEmail,
+    validatedPassword
   ] = [validateEmail(email), validatePassword(password)];
 
-  if (!emailResponse.success) {
-    return res.json(emailResponse);
+  if (!validatedEmail.success) {
+    return res.json(validatedEmail);
   }
 
-  if (!passwordResponse.success) {
-    return res.json(passwordResponse);
+  if (!validatedPassword.success) {
+    return res.json(validatedPassword);
   }
 
   let user;

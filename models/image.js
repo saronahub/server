@@ -21,6 +21,10 @@ const imageSchema = new Schema({
     type: String,
     required: true
   },
+  type: {
+    type: String,
+    required: true
+  },
   timestamp: {
     type: Date,
     required: true,

@@ -7,7 +7,8 @@ const getAll = async function getAll(req, res) {
     images = await Image.find({}, null, {
       sort: {
         timestamp: -1
-      }
+      },
+      type: 'upload'
     });
   } catch (e) {
     logger.error(e);

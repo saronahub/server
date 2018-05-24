@@ -2,11 +2,15 @@ const logger = require('../../lib/logger');
 const Event = require('../../models/event');
 
 const getAll = async function getAll(req, res) {
-  let images;
+  let events;
   try {
-    images = await Event.find({}, null, {
+    events = await Event.find({}, null, {
+      approved: true,
+      start_time: {
+        $gte: new Date()
+      },
       sort: {
-        date: -1
+        start_time: -1
       }
     });
   } catch (e) {
@@ -20,7 +24,7 @@ const getAll = async function getAll(req, res) {
 
   return res.json({
     success: true,
-    data: images
+    data: events
   });
 };
 

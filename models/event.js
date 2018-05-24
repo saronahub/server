@@ -3,6 +3,10 @@ const mongoose = require('mongoose');
 const { Schema } = mongoose;
 
 const eventSchema = new Schema({
+  name: {
+    type: String,
+    required: true
+  },
   author: {
     id: {
       type: String,
@@ -10,7 +14,7 @@ const eventSchema = new Schema({
     },
     name: {
       type: String,
-      require: true
+      required: true
     }
   },
   room: {
@@ -19,11 +23,11 @@ const eventSchema = new Schema({
   },
   date: {
     type: Date,
-    require: true
+    required: true
   },
   description: {
     type: String,
-    require: true
+    required: true
   },
   image: {
     type: String,

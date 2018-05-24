@@ -8,25 +8,25 @@ const logger = require('../lib/logger');
 const userSchema = new Schema({
   email: {
     type: String,
-    require: true
+    required: true
   },
   name: {
     first: {
       type: String,
-      require: true
+      required: true
     },
     last: {
       type: String,
-      require: true
+      required: true
     },
   },
   phone: {
     type: String,
-    require: true
+    required: true
   },
   password: {
     type: String,
-    require: true
+    required: true
   },
   picture: {
     type: String,

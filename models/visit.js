@@ -5,7 +5,7 @@ const { Schema } = mongoose;
 const visitSchema = new Schema({
   visitor: {
     type: String,
-    require: true
+    required: true
   },
   date: {
     exit: Date,

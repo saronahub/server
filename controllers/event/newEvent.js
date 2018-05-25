@@ -1,6 +1,8 @@
 const logger = require('../../lib/logger');
 const Event = require('../../models/event');
 
+const { validateEventRoom } = require('../../lib/validate');
+
 const newEvent = async function newEvent(req, res) {
   const {
     image,
@@ -15,11 +17,10 @@ const newEvent = async function newEvent(req, res) {
 
   const { id, fullname } = req.user;
 
-  if (!Number.isInteger(room)) {
-    return res.json({
-      success: false,
-      error: 'Expected room parameter to be a number'
-    });
+  const validatedRoom = validateEventRoom(room);
+
+  if (!validatedRoom.success) {
+    return res.json(validatedRoom);
   }
 
   const params = {

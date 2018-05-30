@@ -37,18 +37,18 @@ const login = async function login(req, res) {
   }
 
   if (!user) {
-    return res.json({
+    return res.status(401).json({
       success: false,
-      error: 'Email address or password is incorrect'
+      error: 'Bad credentials'
     });
   }
 
   const isMatch = await user.comparePassword(password);
 
   if (!isMatch) {
-    return res.json({
+    return res.status(401).json({
       success: false,
-      error: 'Email address or password is incorrect'
+      error: 'Bad credentials'
     });
   }
 

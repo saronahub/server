@@ -9,8 +9,7 @@ const { router: image } = require('./image');
 const router = Router();
 
 
-router.use(auth);
-// The following routes can not be accessed without a valid token
+router.use('/auth', auth);
 // router.use('/user', user);
 // router.use('/visit', visit);
 router.use('/event', event);

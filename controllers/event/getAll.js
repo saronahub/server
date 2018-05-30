@@ -30,7 +30,7 @@ const getAll = async function getAll(req, res) {
     const event = eventsFromDB[i];
     const { room } = event;
 
-    events[room] = event;
+    events[room].push(event);
   }
 
   return res.json({

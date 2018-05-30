@@ -39,9 +39,9 @@ router.use('/', async (req, res, next) => {
     }
   }
 
-  return res.status(401).json({
+  return res.status(403).json({
     success: false,
-    error: 'Expected valid token'
+    error: 'Forbidden. Expected valid token.'
   });
 });
 

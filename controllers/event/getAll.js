@@ -2,9 +2,15 @@ const logger = require('../../lib/logger');
 const Event = require('../../models/event');
 
 const getAll = async function getAll(req, res) {
-  let events;
+  const events = {
+    1: [],
+    2: [],
+    3: []
+  };
+
+  let eventsFromDB;
   try {
-    events = await Event.find({
+    eventsFromDB = await Event.find({
       approved: true
     }, null, {
       sort: {
@@ -18,6 +24,13 @@ const getAll = async function getAll(req, res) {
       success: false,
       error: 'Unexpected server error'
     });
+  }
+
+  for (let i = 0; i < eventsFromDB.length; i += 1) {
+    const event = eventsFromDB[i];
+    const { room } = event;
+
+    events[room] = event;
   }
 
   return res.json({

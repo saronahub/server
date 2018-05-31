@@ -23,7 +23,7 @@ YYYY-MM-DDTHH:MM:SSZ
 
 ### Root endpoint
 
-The root endpoint of the server depends on the version you want to access. For example, the root endpoint of version 1 will be:
+The root endpoint of the server depends on the version you want to access. For example, the root endpoint of the **v1** version will be:
 
 ```
 https://(URL will be added soon)/v1

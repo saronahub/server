@@ -37,7 +37,7 @@ const eventSchema = new Schema({
     type: String,
     default: ''
   },
-  age: {
+  age_limit: {
     min: Number,
     max: Number
   },

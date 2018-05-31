@@ -6,10 +6,10 @@ const { validateEventRoom } = require('../../lib/validate');
 const newEvent = async function newEvent(req, res) {
   const {
     image,
-    minAge,
-    maxAge,
-    endTime,
-    startTime,
+    min_age,
+    max_age,
+    end_time,
+    start_time,
     room = 1,
     name = '',
     description = ''
@@ -28,11 +28,11 @@ const newEvent = async function newEvent(req, res) {
     name,
     image,
     description,
-    end_time: endTime,
-    start_time: startTime,
-    age: {
-      min: minAge,
-      max: maxAge
+    end_time,
+    start_time,
+    age_limit: {
+      min: min_age,
+      max: max_age
     },
     author: {
       id,

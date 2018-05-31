@@ -31,9 +31,9 @@ This is the documentation for SaronaHub's database structure.
 | start_time | *Date* | | **false** | start time of the event |
 | description | *String* | | **false** | event description |
 | image | *String* | default image | **true** | |
-| age | *Object* | | **true** | age range for the event |
-| age.min | *Number* | | **true** | |
-| age.max | *Number* | | **true** | |
+| age_limit | *Object* | | **true** | age limits for the event |
+| age_limit.min | *Number* | | **true** | |
+| age_limit.max | *Number* | | **true** | |
 | participants | *Array* | [] | **false** | list of participants id's |
 | approved | *Boolean* | **false** | **false** | whether the event was approved by the team |
 

@@ -12,6 +12,7 @@ All JavaScript must adhere to [Airbnb's JavaScript Style Guide][1] with the foll
 
 - You can ignore comma dangle
 - You can use unnamed function expressions
+- Camle case is not necessary but recommended
 
 [1]: https://github.com/airbnb/javascript
 

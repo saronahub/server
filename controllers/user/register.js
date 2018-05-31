@@ -8,14 +8,12 @@ const { validateEmail, validatePassword } = require('../../lib/validate');
 const register = async function register(req, res) {
   const {
     fbId = '',
-    name = {},
     email = '',
     phone = '',
     password = '',
+    last_name = '',
+    first_name = ''
   } = req.body;
-
-  name.first = name.first || '';
-  name.last = name.last || '';
 
   let params = {};
 
@@ -50,6 +48,11 @@ const register = async function register(req, res) {
     params.fbId = fbId;
     params.isFBUser = true;
   }
+
+  const name = {
+    last: last_name,
+    first: first_name
+  };
 
   if (name.first.length < 1 || name.last.length < 1) {
     return res.json({

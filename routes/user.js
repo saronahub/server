@@ -6,9 +6,9 @@ const registerController = require('../controllers/user/register');
 
 const router = Router();
 
+router.post('/', registerController);
 router.post('/login', loginController);
 router.post('/reset', resetController);
-router.post('/register', registerController);
 
 module.exports = {
   router

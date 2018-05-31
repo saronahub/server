@@ -8,11 +8,13 @@ const getAll = async function getAll(req, res) {
     3: []
   };
 
+  const fields = 'id name room author image age_limit end_time start_time description participants';
+
   let eventsFromDB;
   try {
     eventsFromDB = await Event.find({
       approved: true
-    }, null, {
+    }, fields, {
       sort: {
         start_time: -1
       }
@@ -27,8 +29,12 @@ const getAll = async function getAll(req, res) {
   }
 
   for (let i = 0; i < eventsFromDB.length; i += 1) {
-    const event = eventsFromDB[i];
+    const event = eventsFromDB[i].toJSON();
     const { room } = event;
+
+    // remove unnecessary fiels
+    delete event._id;
+    delete event.room;
 
     events[room].push(event);
   }

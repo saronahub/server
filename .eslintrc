@@ -1,7 +1,8 @@
 {
     "extends": "airbnb-base",
     "rules": {
-        "comma-dangle": 0,
-        "func-names": 0
+        "func-names": 0,
+        "cammelcase": 0,
+        "comma-dangle": 0
     }
 }

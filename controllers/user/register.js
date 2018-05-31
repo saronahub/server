@@ -101,7 +101,7 @@ const register = async function register(req, res) {
     });
   }
 
-  return res.json({
+  return res.status(201).json({
     success: true
   });
 };

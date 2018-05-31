@@ -33,7 +33,7 @@ https://(URL will be added soon)/v1
 
 ## Authentication
 
-Requests that require authentication will return `403 Forbidden`.
+Requests that require authentication will return `403 Forbidden` when an invalid token was provided.
 
 ### Basic authentication
 

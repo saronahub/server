@@ -4,6 +4,7 @@ This describes the resources that make up the official SaronaHub REST API. If yo
 
 1. [Current version](#current-version)
 2. [Schema](#schema)
+    1. [Root endpoint](#root-endpoint)
 3. [Authentication](#authentication)
 
 ## Current version
@@ -18,6 +19,14 @@ All timestamps return in ISO 8601 format:
 
 ```
 YYYY-MM-DDTHH:MM:SSZ
+```
+
+### Root endpoint
+
+The root endpoint of the server depends on the version you want to access. For example, the root endpoint of version 1 will be:
+
+```
+https://(URL will be added soon)/v1
 ```
 
 ## Authentication

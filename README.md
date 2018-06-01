@@ -132,6 +132,12 @@ Status: 200 OK
 
 ## Event
 
+| Room name | Room number |
+| -------- | --------- |
+| Open space | 1 |
+| Aquarium | 2 |
+| Ventures room | 3 |
+
 ### List all public events
 
 ```
@@ -140,12 +146,6 @@ GET /event
 
 List all public and approved events by room bumber.
 Returned events are future or ongoing events.
-
-| Room name | Room number |
-| -------- | --------- |
-| Open space | 1 |
-| Aquarium | 2 |
-| Ventures room | 3 |
 
 #### Response
 

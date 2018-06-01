@@ -138,7 +138,8 @@ Status: 200 OK
 GET /event
 ```
 
-List all public and approved events by room bumber
+List all public and approved events by room bumber.
+Returned events are future or ongoing events.
 
 #### Response
 

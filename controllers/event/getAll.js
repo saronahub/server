@@ -13,7 +13,10 @@ const getAll = async function getAll(req, res) {
   let eventsFromDB;
   try {
     eventsFromDB = await Event.find({
-      approved: true
+      approved: true,
+      end_date: {
+        $gte: new Date()
+      }
     }, fields, {
       sort: {
         start_date: -1

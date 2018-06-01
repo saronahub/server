@@ -8,8 +8,8 @@ const newEvent = async function newEvent(req, res) {
     image,
     min_age,
     max_age,
-    end_time,
-    start_time,
+    end_date,
+    start_date,
     room = 1,
     name = '',
     description = ''

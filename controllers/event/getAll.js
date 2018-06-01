@@ -19,7 +19,7 @@ const getAll = async function getAll(req, res) {
       }
     }, fields, {
       sort: {
-        start_date: -1
+        start_date: 1
       }
     });
   } catch (e) {

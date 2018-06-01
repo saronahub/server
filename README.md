@@ -163,8 +163,8 @@ Status: 200 OK
         },
         "name": "WWDC Livestream",
         "description": "first event!",
-        "end_time": "2018-05-24T16:24:09.618Z",
-        "start_time": "2018-05-24T16:07:29.618Z",
+        "end_date": "2018-05-24T16:24:09.618Z",
+        "start_date": "2018-05-24T16:07:29.618Z",
         "id": "5b0724c43ae02b8486f3b5af"
       }
     ],

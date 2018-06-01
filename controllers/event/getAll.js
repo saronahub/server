@@ -16,7 +16,7 @@ const getAll = async function getAll(req, res) {
       approved: true
     }, fields, {
       sort: {
-        start_time: -1
+        start_date: -1
       }
     });
   } catch (e) {

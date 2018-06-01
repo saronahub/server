@@ -28,8 +28,8 @@ const newEvent = async function newEvent(req, res) {
     name,
     image,
     description,
-    end_time,
-    start_time,
+    end_date,
+    start_date,
     age_limit: {
       min: min_age,
       max: max_age

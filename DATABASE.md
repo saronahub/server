@@ -27,8 +27,8 @@ This is the documentation for SaronaHub's database structure.
 | author.id | *String* | | **false** | |
 | author.name | *String* | | **false** | |
 | room | *Number* | 1 | **false** | the room of the event |
-| end_time | *Date* | | **false** | end time of the event |
-| start_time | *Date* | | **false** | start time of the event |
+| end_date | *Date* | | **false** | end time of the event |
+| start_date | *Date* | | **false** | start time of the event |
 | description | *String* | | **false** | event description |
 | image | *String* | default image | **true** | |
 | age_limit | *Object* | | **true** | age limits for the event |

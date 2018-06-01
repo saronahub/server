@@ -141,6 +141,13 @@ GET /event
 List all public and approved events by room bumber.
 Returned events are future or ongoing events.
 
+Room number:
+| Room name | Room number |
+| -------- | --------- |
+| Open space | 1 |
+| Aquarium | 2 |
+| Ventures room | 3 |
+
 #### Response
 
 ```json

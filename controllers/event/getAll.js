@@ -8,7 +8,7 @@ const getAll = async function getAll(req, res) {
     3: []
   };
 
-  const fields = 'id name room author image age_limit end_time start_time description participants';
+  const fields = 'id name room author image age_limit end_date start_date description participants';
 
   let eventsFromDB;
   try {

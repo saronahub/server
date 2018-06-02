@@ -99,7 +99,7 @@ Status: 201 Created
 POST /user/login
 ```
 
-Authenticate user credintials and return JWT token
+Authenticate user credentials and return JWT token
 
 #### Input
 

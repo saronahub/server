@@ -5,6 +5,7 @@ This describes the resources that make up the official SaronaHub REST API. If yo
 1. [Current version](#current-version)
 2. [Schema](#schema)
     1. [Root endpoint](#root-endpoint)
+    2. [API versions](#api-versions)
 3. [Authentication](#authentication)
 4. [User](#user)
 5. [Event](#event)
@@ -29,6 +30,28 @@ The root endpoint of the server depends on the version you want to access. For e
 
 ```
 https://(URL will be added soon)/v1
+```
+
+### API versions
+
+This endpoint returns a list of all available API versions.
+
+```
+GET /versions
+```
+
+#### Response
+
+```json
+Status: 200 OK
+
+{
+  "success": true,
+  "data": [
+    "beta",
+    "v1"
+  ]
+}
 ```
 
 ## Authentication

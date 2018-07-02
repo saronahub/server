@@ -12,11 +12,11 @@ This describes the resources that make up the official SaronaHub REST API. If yo
 
 ## Current version
 
-We are currently on alpha version. By default, all requests to `(URL will be added soon)` receive the alpha version of the REST API.
+We are currently on beta version. By default, all requests to `https://api.saronahub.co.il/beta` receive the beta version of the REST API.
 
 ## Schema
 
-All API access is over HTTPS, and accessed from `(URL will be added soon)`. All data is sent and received as JSON.
+All API access is over HTTPS, and accessed from `api.saronahub.co.il`. All data is sent and received as JSON.
 
 All timestamps return in ISO 8601 format:
 
@@ -29,7 +29,7 @@ YYYY-MM-DDTHH:MM:SSZ
 The root endpoint of the server depends on the version you want to access. For example, the root endpoint of the **v1** version will be:
 
 ```
-https://(URL will be added soon)/v1
+https://api.saronahub.co.il/v1
 ```
 
 ### API versions
@@ -37,7 +37,7 @@ https://(URL will be added soon)/v1
 This endpoint returns a list of all available API versions.
 
 ```
-GET /versions
+GET https://api.saronahub.co.il/versions
 ```
 
 #### Response
@@ -60,12 +60,12 @@ Requests that require authentication will return `403 Forbidden` when an invalid
 
 ### Basic authentication
 
-`curl -H "Authorization: token JWT-TOKEN" (URL will be added soon)`
+`curl -H "Authorization: token JWT-TOKEN" https://api.saronahub.co.il`
 
 ### Failed login
 
 ```
-curl -H "Authorization: token JWT-TOKEN" (URL will be added soon)
+curl -H "Authorization: token JWT-TOKEN" https://api.saronahub.co.il
 HTTP/1.1 401 Unauthorized
 {
   "success": false,
